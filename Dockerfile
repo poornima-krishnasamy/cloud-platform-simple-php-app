@@ -4,6 +4,8 @@ RUN addgroup -g 1000 -S appgroup && adduser -u 1000 -S appuser -G appgroup
 
 WORKDIR /app
 
+COPY index.php .
+
 RUN chown -R appuser:appgroup /app
 
 USER 1000
