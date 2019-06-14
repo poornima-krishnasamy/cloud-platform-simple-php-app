@@ -3,6 +3,6 @@
   <title>Test application</title>
  </head>
  <body>
- <?php echo '<p>Hello World simple PHP docker</p>'; ?> 
+ <?php echo '<p>Hello World simple PHP docker with Apache</p>'; ?> 
  </body>
 </html>

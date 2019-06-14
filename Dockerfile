@@ -1,13 +1,14 @@
-FROM php:7.3.6-fpm-alpine3.9
+FROM php:7.3-apache
 
-RUN addgroup -g 1000 -S appgroup && adduser -u 1000 -S appuser -G appgroup
+COPY . /app
+COPY ./vhosts.conf /etc/apache2/sites-available/000-default.conf
 
-WORKDIR /app
+COPY ./ports.conf /etc/apache2/ports.conf
 
-COPY index.php .
+RUN adduser --disabled-password php -u 1001 --quiet && \
+    chown -R php:php /app
 
-RUN chown -R appuser:appgroup /app
+RUN chown -R 1001:1001 /app/public \
+    && a2enmod rewrite
 
-USER 1000
-
-CMD [ "php", "./index.php" ]
+USER  1001

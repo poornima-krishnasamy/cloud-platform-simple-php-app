@@ -11,6 +11,6 @@ spec:
     spec:
       containers:
       - name: php-app
-        image: 754256621582.dkr.ecr.eu-west-2.amazonaws.com/cp-team/cp-poornima-dev-module:simplephp-app-1.0
+        image: 754256621582.dkr.ecr.eu-west-2.amazonaws.com/cp-team/cp-poornima-dev-module:simplephp-apache-1.0
         ports:
         - containerPort: 4568
